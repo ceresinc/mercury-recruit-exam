@@ -1,1 +1,1 @@
-# mercure-recruit-exam
+# mercury-recruit-exam
