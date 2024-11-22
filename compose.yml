@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:8.0.28
+    container_name: recruit-exam
+    restart: always
+    # M1以降のmacを使用の場合、以下を使用
+    # platform: linux/x86_64
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: exam
+      MYSQL_USER: guest_user
+      MYSQL_PASSWORD: guest_password
+      TZ: "Asia/Tokyo"
+    ports:
+      - 13306:3306
+    volumes:
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/db:/docker-entrypoint-initdb.d
